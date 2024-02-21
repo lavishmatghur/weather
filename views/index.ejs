@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather-app</title>
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lemon&family=Ubuntu:wght@500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <button type="button" class="home"> <a href="/"><img src="/images/house-solid.svg" alt="home-button"></a></button>
+    <div class="layer"></div>
+    <h1>Weather APP</h1>
+
+    <div class="main">
+        <% if (locals.content) { %>
+            <h1 class="center">
+                <div class="region" id="region">
+
+                    <p>
+                        <%= content.city_name %>
+                    </p>
+
+                </div>
+                <span class="weather">
+
+                    <%= content["weather"] %>
+                        <img src=<%=content["icon"] %> alt="icon">
+                </span>
+            </h1>
+            <div class="info">
+
+
+                <div class="gridChild" id="minTemp">
+                    <h6>Min_Temp:</h6>
+                    <p>
+                        <%= content.min_temp %> &degC
+                    </p>
+                </div>
+                <div class="gridChild" id="maxTemp">
+                    <h6>Max_Temp:</h6>
+                    <p>
+                        <%= content.max_temp %> &degC
+                    </p>
+                </div>
+                <div class="gridChild" id="humidity">
+                    <h6>humidity:</h6>
+                    <p>
+                        <%= content["humidity"] %>
+                    </p>
+                </div>
+                <div class="gridChild" id="windSpeed">
+                    <h6>WindSpeed:</h6>
+                    <p>
+                        <%= content["windSpeed"] %>Km/H
+                    </p>
+                </div>
+                <div class="gridChild" id="visibility">
+                    <h6>visibility:</h6>
+                    <p>
+                        <%= content["visibility"] %>m
+                    </p>
+                </div>
+
+            </div>
+
+            <% } else {%>
+                <h1 class="error">
+                    code: '404', message: 'city not found'
+                </h1>
+
+                <% } %>
+    </div>
+    <script src="/index.js"></script>
+</body>
+
+</html>

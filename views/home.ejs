@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather-app</title>
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lemon&family=Ubuntu:wght@500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="loader-overlay">
+        <div class="loader"></div>
+        <p>Loading...</p>
+    </div>
+
+    <button type="button" class="home"> <a href="/"><img src="/images/house-solid.svg" alt="home-button"></a></button>
+
+    <div class="layer"></div>
+    <h1>Weather APP</h1>
+
+    <div class="city">
+        <form action="weather" method="post">
+            <input type="text" placeholder="Enter city name" autocomplete="off" name="city" id="city">
+            <button type="submit" value="submit" class="submit"><img src="/images/magnifying-glass-solid.svg"
+                    alt="search-button"></button>
+        </form>
+
+    </div>
+    <h1 class="heading">Enter the city</h1>
+    <script>
+        function loader_timeout() {
+            var loader = document.querySelector(".loader-overlay");
+            window.addEventListener("load", () => {
+                loader.style.display = "none"
+            })
+        }
+        setTimeout(loader_timeout(), 1000);
+
+
+    </script>
+</body>
+
+</html>
